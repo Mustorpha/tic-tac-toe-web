@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "philosopher";
+    src: url('fonts/Philosopher-Regular.ttf');
+}
+
+*
+{
+    font-family: 'philosopher';
+}
+
+.title
+{
+    font-size: 35px;
+}
+
+.title::after
+{
+    content: " ";
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 6%;
+    height: 3px;
+    border-radius: 25px;
+    left: 47%;
+    top: 26%;
+}
+
+.img
+{
+    padding-top: 45px;
+    padding-bottom: 45px;
+    width: 220px;
+}
+
+.btn-p1
+{
+    background-color: rgb(4 165 221);
+    border: 0px;
+}
+
+.btn-p1:hover, .btn-p2:hover
+{
+    background-color: rgb(0, 116, 155);
+}
+
+.btn-p2
+{
+    color: rgb(4 165 221);
+    border-color: rgb(4 165 221);
+}
+
+.row
+{
+    height: 90% !important;
+}
+
+@media (max-width: 650px) {
+    .title::after
+    {
+        content: " ";
+        display: block;
+        position: absolute;
+        background-color: white;
+        width: 15%;
+        height: 3px;
+        border-radius: 25px;
+        left: 43%;
+        top: 25%;
+    }
+
+    .row
+    {
+        width: 65% !important;
+    }
+}
