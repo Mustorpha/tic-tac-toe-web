@@ -5,29 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assests/favicon.png" type="image/x-icon">
     <title>Tic Tac Toe</title>
 </head>
 <body data-bs-theme="dark">
     <div class="container-xl justify-content-center d-flex vh-100 align-items-center">
         <div class="row align-items-center shadow h-100 w-50">
             <div class="col-12 text-center p-5">
-                <h3 class="title-1">Pick your side</h3>
-                <div class=" align justify-content-center my-5">
-                    <div class="align-items-center col-6 vstack float-start gap-5">
-                        <img src="./assests/x.png" alt="player-icon" class="img w-50">
-                        <input type="radio" name="player-choice" class="form-check-input choice" id="choice" checked>
+
+                <!--Player Data form starts-->
+                <form class="form-control border-0" onsubmit="return input_validation()" action="./stage/board.html" method="post">
+                    <h3 class="title-1 mb-3">Enter your name</h3>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">👤</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="player1" required>
+                        <span class="input-group-text" id="basic-addon1">Player 1</span>
                     </div>
-                    <div class="col-6 vstack float-end gap-5 align-items-center">
-                        <img src="./assests/o.png" alt="player-icon" class="img w-50">
-                        <input type="radio" name="player-choice" class="form-check-input choice" id="">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">👤</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="player2" required>
+                        <span class="input-group-text" id="basic-addon1">Player 2</span>
                     </div>
-                </div>
-                <a href="#">
-                    <button type="button" class="btn btn-primary rounded-5 my-3 w-75 btn-p1 mt-5">Continue</button>
-                </a>
+                    <br>
+                    <!--Player icon choice starts-->
+                    <h2 class="lead">Pick your side</h2>
+                    <p class="text-muted">Note: 'x' goes first</p>
+                    <div class="justify-content-center my-3">
+                        <div class="align-items-center col-6 vstack float-start gap-4">
+                            <img src="./assests/x.png" alt="player-icon" class="img w-25">
+                            <input type="radio" name="player-choice" value="x" class="form-check-input choice" id="choice" checked>
+                        </div>
+                        <div class="col-6 vstack float-end gap-4 align-items-center">
+                            <img src="./assests/o.png" alt="player-icon" class="img w-25">
+                            <input type="radio" name="player-choice" value="o" class="form-check-input choice" id="">
+                        </div>
+                    </div>
+                    <!--Player icon choice ends-->
+                    <button type="submit" class="btn btn-primary rounded-5 my-3 w-75 btn-p1 mt-5" id="start">Start Game</button>
+                </form>
+                <!--Player data ends-->
+
             </div>
         </div>
     </div>
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("omar") == "true")
+    {
+        player_two = document.getElementById("player2");
+        player_two.readOnly = true;
+        player_two.value = "Omar"
+        localStorage.clear();
+    }
+</script>
+<script>
+    let player_one, player_two, player_choice, details;
+
+    function input_validation()
+    {
+        player_one = document.getElementById("player1").value;
+        player_two = document.getElementById("player2").value;
+            if (player_one === "" || player_two === "")
+        {
+            return false;
+        }
+        document.getElementsByName("player-choice").forEach(choice => {
+            if (choice.checked)
+            {
+                player_choice = choice.value;
+            }
+        });
+        details = [player_one, player_two, player_choice];
+        localStorage.setItem("player_info", JSON.stringify(details));
+
+        return true;
+    }
+</script>
 </html>

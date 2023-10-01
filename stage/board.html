@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../assests/favicon.png" type="image/x-icon">
+    <title>Tic Tac Toe</title>
+</head>
+<body data-bs-theme="dark">
+    <!--the game board Starts-->
+    <div class="container-xl justify-content-center d-flex vh-100 align-items-center">
+        <div class="row align-items-center shadow h-100 w-50">
+            <div class="col-12 text-center p-5">
+                <h3 class="title-2">Game Board ⌨</h3>
+                <div class="hstack justify-content-center gap-5 my-2">
+                    <p class="text-muted pt-3 player" id="user1">player 1</p>
+                    <div class="rounded-5 px-3 shadow-lg" id="score">
+                        <p class="lead d-inline fw-bold" id="plScore"></p>
+                        <p class="lead d-inline fw-bold">&#160-&#160</p>
+                        <p class="lead d-inline fw-bold" id="opScore"></p>
+                    </div>
+                    <p class="text-muted pt-3 player" id="user2">player 2</p>
+                </div>
+                <table class="board w-100">
+                    <tbody>
+                        <tr>
+                            <td class="cell" id="c00"></td>
+                            <td class="cell" id="c01"></td>
+                            <td class="cell" id="c02"></td>
+                        </tr>
+                        <tr>
+                            <td class="cell" id="c10"></td>
+                            <td class="cell" id="c11"></td>
+                            <td class="cell" id="c12"></td>
+                        </tr>
+                        <tr>
+                            <td class="cell" id="c20"></td>
+                            <td class="cell" id="c21"></td>
+                            <td class="cell" id="c22"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn-group gap-5 mt-4" role="group">
+                    <button type="button" class="btn btn-p1" id="restartBtn" onclick="restartGame()">Restart</button>
+                    <button type="button" class="btn btn-p2" id="exitBtn" onclick="exitGame()">Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Game board ends-->
+
+    <!--Notification Center starts-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div class="toast" id="notification" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <span>👀&#160&#160</span>
+                <strong class="me-auto text-primary fw-bold">Tic Tac Toe</strong>
+                <small>Just now</small>
+                <button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast-text"></div>
+        </div>
+    </div>
+    <!--Notification center ends-->
+
+    <!--Modal start-->
+    <div class="modal fade" id="modal-notification" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLiveLabel">Tic Tac Toe</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalText"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Modal ends-->
+</body>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/intelligence.js"></script>
+<script src="../js/game.js"></script>
+<script>
+    window.onload = beginGame();
+</script>
+</html>

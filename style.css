@@ -1,11 +1,18 @@
+/* Imports local font face */
 @font-face {
     font-family: "philosopher";
     src: url('fonts/Philosopher-Regular.ttf');
 }
 
+/* Custom Styling */
 *
 {
     font-family: 'philosopher';
+}
+
+.row
+{
+    height: 100%
 }
 
 .title
@@ -15,20 +22,13 @@
 
 .title-1
 {
-    font-size: 35px;
+    font-size: 30px;
 }
 
-.title-1::after
+.title-1
 {
-    content: " ";
-    display: block;
-    position: absolute;
-    background-color: white;
-    width: 10%;
-    height: 3px;
-    border-radius: 25px;
-    left: 45%;
-    top: 27%;
+    font-size: 30px;
+    margin-top: -10%;
 }
 
 .title::after
@@ -41,14 +41,14 @@
     height: 3px;
     border-radius: 25px;
     left: 47%;
-    top: 26%;
+    top: 24%;
 }
 
 .img.img-cover
 {
     padding-top: 45px;
     padding-bottom: 45px;
-    width: 220px;
+    width: 250px;
 }
 
 .btn-p1
@@ -70,13 +70,13 @@
 
 .row
 {
-    height: 90% !important;
+    height: 100% !important;
 }
 
 .choice
 {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
 .choice:checked
@@ -85,6 +85,70 @@
     box-shadow: none;
 }
 
+#score
+{
+    background-color: rgb(4, 179, 238);
+    height: 35px;
+    padding-top: 2px;
+}
+
+.player::first-letter
+{
+    text-transform: capitalize !important;
+}
+
+.cell
+{
+    width: 30px;
+    height: 130px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.cell:hover
+{
+    background-color: rgba(172, 171, 171, 0.062);
+}
+
+.board
+{
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 1px solid rgba(172, 171, 171, 0.226);
+    border-radius: 15px;
+}
+
+.board td:not(:last-child)
+{
+    border-right: 1px solid rgba(172, 171, 171, 0.226);
+}
+
+.board tr:not(:last-child)>td
+{
+    border-bottom: 1px solid rgba(172, 171, 171, 0.226);
+}
+
+.board tr:first-child>td:first-child:hover
+{
+    border-top-left-radius: 15px;
+}
+
+.board tr:last-child>td:first-child:hover
+{
+    border-bottom-left-radius: 15px;
+}
+
+.board tr:first-child>td:last-child:hover
+{
+    border-top-right-radius: 15px;
+}
+
+.board tr:last-child>td:last-child:hover
+{
+    border-bottom-right-radius: 15px;
+}
+
+/* Mobile Specific Custom Styling */
 @media (max-width: 600px) {
     .title::after
     {
@@ -99,21 +163,23 @@
         top: 25%;
     }
 
-    .title-1::after
-    {
-        content: " ";
-        display: block;
-        position: absolute;
-        background-color: white;
-        width: 18%;
-        height: 3px;
-        border-radius: 25px;
-        left: 41%;
-        top: 30%;
-    }
-
     .row
     {
-        width: 65% !important;
+        width: 80% !important;
+    }
+
+    .cell
+    {
+        width: 30px;
+        height: 105px;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    #score
+    {
+        width: 120px;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
 }
