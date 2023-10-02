@@ -152,15 +152,8 @@
 @media (max-width: 600px) {
     .title::after
     {
-        content: " ";
-        display: block;
-        position: absolute;
-        background-color: white;
-        width: 15%;
-        height: 3px;
-        border-radius: 25px;
-        left: 43%;
-        top: 25%;
+        content: "";
+        display: none;
     }
 
     .row
