@@ -134,8 +134,8 @@ function omarHandler()
 
 function handleClick(row, col)
 {
-    let clickX = "<img src='../assests/x.png' alt='x-img' class='img img-fluid w-50'>";
-    let clickO = "<img src='../assests/o.png' alt='o-img' class='img img-fluid w-50'>";
+    let clickX = "<img src='assests/x.png' alt='x-img' class='img img-fluid w-50'>";
+    let clickO = "<img src='assests/o.png' alt='o-img' class='img img-fluid w-50'>";
     //console.log("Click Detected at row = "+row+" col = "+col);
     if (Minimax.boardSpace(game_board) && game_board[row][col] !== "")
     {

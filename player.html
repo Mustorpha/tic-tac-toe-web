@@ -14,7 +14,7 @@
             <div class="col-12 text-center p-5">
 
                 <!--Player Data form starts-->
-                <form class="form-control border-0" onsubmit="return input_validation()" action="board.html" method="get">
+                <div class="form-control border-0">
                     <h3 class="title-1 mb-3">Enter your name</h3>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">👤</span>
@@ -41,8 +41,8 @@
                         </div>
                     </div>
                     <!--Player icon choice ends-->
-                    <button type="submit" class="btn btn-primary rounded-5 my-3 w-75 btn-p1 mt-5" id="start">Start Game</button>
-                </form>
+                    <button type="submit" class="btn btn-primary rounded-5 my-3 w-75 btn-p1 mt-5" id="start" onclick="input_validation()">Start Game</button>
+                </div>
                 <!--Player data ends-->
 
             </div>
@@ -50,6 +50,7 @@
     </div>
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/game.js"></script>
 <script>
     if (localStorage.getItem("omar") == "true")
     {
@@ -68,6 +69,7 @@
         player_two = document.getElementById("player2").value;
             if (player_one === "" || player_two === "")
         {
+	    window.alert("Please Insert your name 😑");
             return false;
         }
         document.getElementsByName("player-choice").forEach(choice => {
@@ -78,6 +80,7 @@
         });
         details = [player_one, player_two, player_choice];
         localStorage.setItem("player_info", JSON.stringify(details));
+	window.location.href = "board.html";
 
         return true;
     }
